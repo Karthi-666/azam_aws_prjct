@@ -1,0 +1,267 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #343a40;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.header-section {
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,140,1) 35%, rgba(0,212,255,1) 100%);
+    padding: 100px 0;
+}
+
+.header-section h1 {
+    font-size: 2.5rem;
+    font-size: 48px;
+}
+
+.header-section p {
+    font-size: 18px;
+}
+
+.header-section .btn-primary {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+h2 {
+    color: #343a40;
+}
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    border-color: #c82333;
+}
+.navbar-nav {
+    list-style: none; /* Remove bullets */
+    padding-left: 0;
+    margin: 0;
+    text-align: center;
+    display: flex; /* Align items horizontally */
+}
+
+.navbar-nav .nav-item {
+    margin-left: 15px; /* Spacing between items */
+}
+
+.navbar-nav .nav-link {
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+}
+
+.navbar-nav .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.navbar-nav .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #00d4ff; /* Example hover color */
+}
+
+/* Example: Default styling */
+ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 40px; /* Adjust spacing */
+    margin: 0; /* Reset margin */
+}
+
+li {
+    margin-bottom: 10px; /* Space between items */
+}
+
+/* Adjust for specific sections if needed */
+#navbarNav ul {
+    list-style: none; /* Remove bullets for nav */
+    padding-left: 0;
+    display: flex;
+}
+
+#navbarNav ul li {
+    margin: 0 15px; /* Space between links */
+}
+
+/* Course Section */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    border-bottom: 5px solid #007bff;
+}
+
+.card-body {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #555;
+}
+
+.card-body .btn-outline-primary {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.card-body .btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Form and Button Styles */
+.form-control {
+    border-radius: 8px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.mt-4 {
+    margin-top: 2rem;
+}
+
+/* Course List Styles */
+.list-group-item {
+    font-size: 16px;
+    color: #333;
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: #f8f9fa;
+}
+
+/* Login and Register Form Styling */
+h2.text-center.mb-4 {
+    color: #333;
+    font-size: 32px;
+}
+
+.form-label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.mb-3 input {
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.my-5 {
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+}
+
+/* Specific Styles for Home Page */
+#about {
+    background-color: #f8f9fa;
+}
+
+#courses {
+    background-color: #ffffff;
+}
+
+#contact {
+    background-color: #f8f9fa;
+}
+
+.address {
+    font-size: 16px;
+}
+
+.address strong {
+    font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .header-section h1 {
+        font-size: 36px;
+    }
+
+    .header-section p {
+        font-size: 16px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+}
