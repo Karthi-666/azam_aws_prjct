@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 
-<body>
+<body data-is-logged-in="{{ 'true' if 'user' in session else 'false' }}" data-is-admin="{{ 'true' if 'user' in session and session.get('role') == 'admin' else 'false' }}">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">AWS Virtual Classroom</a>
@@ -19,15 +19,21 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
+                    <a class="nav-link" href="/">Home</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#courses">Courses</a>
+                <li class="nav-item admin-item hidden">
+                    <a class="nav-link" href="/admindashboard">Admin Dashboard</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
+                <li class="nav-item dashboard-item hidden">
+                    <a class="nav-link" href="/dashboard">Dashboard</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item user-greeting hidden">
+                    <span class="nav-link">Hello, {{ session['user'] }}</span>
+                </li>
+                <li class="nav-item logout-item hidden">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item login-item">
                     <a class="nav-link btn btn-outline-primary text-white" href="/login">Login</a>
                 </li>
             </ul>
@@ -114,7 +120,27 @@
     <footer class="text-center py-4 bg-dark text-white">
         <p>&copy; 2025 AWS Virtual Classroom. All rights reserved.</p>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get data attributes from the body element
+            const body = document.body;
+            const isLoggedIn = body.getAttribute('data-is-logged-in') === 'true';
+            const isAdmin = body.getAttribute('data-is-admin') === 'true';
+            // Logic to show/hide elements based on the attributes
+            if (isLoggedIn) {
+                document.querySelector('.dashboard-item').classList.remove('hidden');
+                document.querySelector('.user-greeting').classList.remove('hidden');
+                document.querySelector('.logout-item').classList.remove('hidden');
+                if (isAdmin) {
+                    // Show admin-specific elements
+                    document.querySelector('.admin-item').classList.remove('hidden');
+                }
+            } else {
+                // Show login when user is not logged in
+                document.querySelector('.login-item').classList.remove('hidden');
+            }
+        });
+    </script>
     <!-- Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
