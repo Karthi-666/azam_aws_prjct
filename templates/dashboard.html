@@ -10,31 +10,55 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body class="bg-light">
-    <div class="container">
-        <h2 class="my-4 text-center">Course Dashboard</h2>
+    <div class="container py-5">
+        <h2 class="mb-4 text-center">Course Dashboard</h2>
 
         <!-- Display image or dynamic content -->
         <div class="text-center my-4">
             {% if course_image %}
-                <img src="{{ course_image }}" alt="Course Thumbnail" class="img-thumbnail">
+                <img src="{{ course_image }}" alt="Course Thumbnail" class="img-thumbnail course-thumbnail mb-4">
             {% else %}
                 <p>No course image available.</p>
             {% endif %}
         </div>
 
-        <!-- Example dynamic content -->
-        <div>
-            <h3>Your Courses</h3>
-            <ul class="list-group">
-                {% for course in courses %}
-                    <li class="list-group-item">{{ course.name }} - {{ course.description }}</li>
-                {% endfor %}
-            </ul>
+        <h3 class="mb-3">Course Videos</h3>
+        <div class="youtube-links row">
+            {% for title, link in youtube_links %}
+            <div class="col-md-4">
+                <div class="video-card">
+                    <h5>{{ title }}</h5>
+                    <iframe src="{{ link }}" allowfullscreen title="Video: {{ title }}" width="100% " height="200">
+        </iframe>
+                </div>
+            </div>
+            {% endfor %}
         </div>
+        <!-- Course Materials -->
+        <h3 class="mb-3">Course Materials</h3>
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Download Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course, file_path in materials %}
+                <tr>
+                    <td>{{ course }}</td>
+                    <td>
+                        <a href="{{ url_for('static', filename='files/' + file_path) }}" download class="btn btn-link">Download</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
 
         <!-- Logout button -->
-        <div class="mt-4 text-center">
-            <a href="{{ url_for('logout') }}" class="btn btn-danger">Logout</a>
+        <div class="container mb-3">
+            <a href="{{ url_for('home') }}" class="btn btn-secondary">Go to Home</a>
         </div>
     </div>
 </body>
